@@ -57,7 +57,6 @@ class Process:
         async with ClientSession(headers=self.headers) as session:
             response = await session.post('https://app.viral-loops.com/api/v2/events', json=json_data)
             response_text = await response.text()
-            print(response_text)
             if '"isNew":true' in response_text:
                 logger.info(f'Successfully registered by code {code}')
             elif '<!DOCTYPE html>' in response_text:
