@@ -61,6 +61,8 @@ class Process:
             response = await session.post('https://app.viral-loops.com/api/v2/events', json=json_data)
             if response.status == 200:
                 logger.info(f'Successfully registered by code {code}')
+                
+            await asyncio.sleep(0.5)
 
 
 async def main(nums_of_refs: int, reg: Process) -> None:
